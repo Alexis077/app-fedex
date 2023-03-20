@@ -4,11 +4,14 @@ class GetRates
   include Interactor
 
   def call
-    if (user = User.authenticate(context.email, context.password))
-      context.user = user
-      context.token = user.secret_token
-    else
-      context.fail!(message: 'authenticate_user.failure')
-    end
+    result = Fedex::Rates.get({
+                                user_credential_key: ENV['USER_CREDENTIAL_KEY'],
+                                user_credential_password: ENV['USER_CREDENTIAL_PASSWORD'],
+                                account_number: ENV['ACCOUNT_NUMBER'],
+                                meter_number: ENV['METER_NUMBER'],
+                                environment: ENV['ENVIRONMENT']
+                              }, context.as_json['table'])
+
+    context.result = result
   end
 end
