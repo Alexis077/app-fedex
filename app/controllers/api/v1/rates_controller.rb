@@ -8,7 +8,7 @@ module Api
         if rates.success?
           render json: rates.result.as_json
         else
-          render json: { message: 'error' }
+          render json: { message: rates.message }
         end
       end
     end
