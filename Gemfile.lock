@@ -1,5 +1,7 @@
-PATH
-  remote: ../fedex
+GIT
+  remote: https://github.com/Alexis077/fedex.git
+  revision: ae0fa7693f158a4edb27b7224a0ff5d8e958a5b1
+  branch: main
   specs:
     fedex (0.1.0)
       activesupport

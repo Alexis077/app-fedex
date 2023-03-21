@@ -32,7 +32,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'interactor', '~> 3.0'
 
-gem 'fedex', path: '../fedex'
+# gem 'fedex', path: '../fedex' 
+gem 'fedex', git: "https://github.com/Alexis077/fedex.git", branch: "main"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
