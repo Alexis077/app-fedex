@@ -5,11 +5,9 @@ module Api
     class RatesController < ApplicationController
       def create
         rates = GetRates.call(params)
-        if rates.success?
-          render json: rates.result.as_json
-        else
-          render json: { message: rates.message }
-        end
+        return render json: rates.result.as_json if rates.success?
+
+        render json: { message: rates.message }
       end
     end
   end
